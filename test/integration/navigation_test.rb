@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class NavigationTest < ActiveSupport::IntegrationCase
+  test '.merb template handler' do 
+  	visit '/handlers/merb'
+  	expected = '<p>MERB template handler is <strong>cool and fast</strong>!</p>'
+  	assert_match expected, page.body.strip
+  end
+
   test '.md template handler' do 
   	visit '/handlers/rdiscount'
   	expected = '<p>RDiscount is <em>cool</em> and <strong>fast</strong>!</p>'
